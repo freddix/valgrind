@@ -2,12 +2,12 @@
 
 Summary:	An open-source memory debugger
 Name:		valgrind
-Version:	3.8.1
+Version:	3.9.0
 Release:	1
 License:	GPL
 Group:		Development/Tools
 Source0:	http://valgrind.org/downloads/%{name}-%{version}.tar.bz2
-# Source0-md5:	288758010b271119a0ffc0183f1d6e38
+# Source0-md5:	0947de8112f946b9ce64764af7be6df2
 Patch0:		%{name}-ld_linux_strlen.patch
 URL:		http://valgrind.org/
 BuildRequires:	autoconf
@@ -29,7 +29,7 @@ Valgrind is a GPL'd system for debugging and profiling Linux programs.
 %setup -q
 %patch0 -p1
 
-sed -i -e 's|boost_thread-mt|boost_thread|g' configure.in
+%{__sed} -i -e 's|boost_thread-mt|boost_thread|g' configure.ac
 
 %build
 %{__aclocal}
